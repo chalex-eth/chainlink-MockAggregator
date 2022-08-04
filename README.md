@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-forge install chalex-eth/chainlink-MockAgreggator
+forge install chalex-eth/chainlink-MockAggregator
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ forge install chalex-eth/chainlink-MockAgreggator
 1. Add this import to your script or test:
 
 ```solidity
-import "chainlink-MockAgreggator/MockAgreggatorV3.sol";
+import "chainlink-MockAggregator/MockAggregatorV3.sol";
 ```
 
 2. How to use in your contract:
@@ -24,13 +24,13 @@ import "chainlink-MockAgreggator/MockAgreggatorV3.sol";
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "chainlink-MockAgreggator/MockAgreggatorV3.sol";
+import "chainlink-MockAggregator/MockAggregatorV3.sol";
 
 contract ContractTest is Test {
-    MockAgreggatorV3 oracle;
+    MockAggregatorV3 oracle;
 
     function setUp() public {
-        oracle = new MockAgreggatorV3("lib/chainlink-MockAgreggator/dataRequest.js", "ethereum");
+        oracle = new MockAggregatorV3("lib/chainlink-MockAggregator/dataRequest.js", "ethereum");
     }
 
     function testExample() public {
@@ -42,7 +42,7 @@ contract ContractTest is Test {
 
 When creating a new contract you have to parse 2 arguments 
 
-```  oracle = new MockOracle("lib/chainlink-MockAgreggator/dataRequest.js", "ethereum"); ```
+```  oracle = new MockOracle("lib/chainlink-MockAggregator/dataRequest.js", "ethereum"); ```
 
 
 The first one is the path to the file that the ffi cheatcode will execute, the second one is the asset to fetch from coingecko.
