@@ -24,17 +24,17 @@ import "chainlink-MockAggregator/MockAggregatorV3.sol";
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "chainlink-MockAggregator/MockAggregatorV3.sol";
+import "chainlink-MockAggregator/MockV3Aggregator.sol";
 
 contract ContractTest is Test {
-    MockAggregatorV3 oracle;
+    MockV3Aggregator oracle;
 
     function setUp() public {
-        oracle = new MockAggregatorV3("lib/chainlink-MockAggregator/dataRequest.js", "ethereum");
+        oracle = new MockV3Aggregator(8,"lib/chainlink-MockAggregator/dataRequest.js", "ethereum");
     }
 
     function testExample() public {
-        console.log(oracle.latestAnswer());
+        console.log(uint256(oracle.latestAnswer()));
         assertTrue(true);
     }
 }
