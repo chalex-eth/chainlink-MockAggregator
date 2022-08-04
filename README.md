@@ -44,12 +44,12 @@ Then run
 
 ```forge test --ffi -vv```
 
-When creating a new contract you have to parse 2 arguments 
+When creating a new contract you have to parse 3 arguments 
 
-```  oracle = new MockOracle("lib/chainlink-MockAggregator/dataRequest.js", "ethereum"); ```
+``` oracle = new MockV3Aggregator(8,"lib/chainlink-MockAggregator/dataRequest.js", "ethereum"); ```
 
 
-The first one is the path to the file that the ffi cheatcode will execute, the second one is the asset to fetch from coingecko.
+The first one is the number of digits, second one is the path to the file that the ffi cheatcode will execute, the third one is the asset to fetch from coingecko.
 
 3. Get the data inside your testing env:
 
