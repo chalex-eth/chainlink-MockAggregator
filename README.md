@@ -34,7 +34,7 @@ contract ContractTest is Test {
     }
 
     function testExample() public {
-        console.log(oracle.lastPrice());
+        console.log(oracle.latestAnswer());
         assertTrue(true);
     }
 }
