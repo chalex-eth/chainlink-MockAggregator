@@ -40,6 +40,10 @@ contract ContractTest is Test {
 }
 ```
 
+Then run 
+
+```forge test --ffi -vv```
+
 When creating a new contract you have to parse 2 arguments 
 
 ```  oracle = new MockOracle("lib/chainlink-MockAggregator/dataRequest.js", "ethereum"); ```
