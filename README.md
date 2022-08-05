@@ -16,6 +16,8 @@ forge install chalex-eth/chainlink-MockAggregator
 import "chainlink-MockAggregator/MockAggregatorV3.sol";
 ```
 
+In the ```lib/chainlink-MockOracle ``` run ```npm install``` in order to install the dependencies required for ```dataRequest.js```
+
 2. How to use in your contract:
 
 ```solidity
