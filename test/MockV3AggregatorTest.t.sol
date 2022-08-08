@@ -8,13 +8,14 @@ contract MockV3AggregatorTest is Test {
     MockV3Aggregator oracle;
 
     function setUp() public {
-        oracle = new MockV3Aggregator(8,"dataRequest.js", "ethereum");
+        oracle = new MockV3Aggregator(8);
     }
 
     function testSetUp() public {
         uint256[] memory oracleData = oracle.getOracleData();
         assertEq(uint256(oracle.latestAnswer()), oracleData[0]);
         assertEq(oracle.latestRound(), 1);
+        console.log(uint256(oracle.latestAnswer()));
     }
 
     function testUpdateState() public {

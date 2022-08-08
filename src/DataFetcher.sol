@@ -12,10 +12,20 @@ contract DataFetcher {
     Vm constant vm =
         Vm(address(bytes20(uint160(uint256(keccak256("hevm cheat code"))))));
 
-    constructor(string memory pathToRequestJS, string memory assetToFecth) {
+
+
+    function loadFromJS(string memory pathToRequestJS, string memory assetToFecth) internal {
         fetchData(pathToRequestJS, assetToFecth);
         loadData();
         deleteFile();
+    }
+
+    function loadFromFile(string memory pathToFile) internal {
+        string[] memory cmds = new string[](2);
+        cmds[0] = "cat";
+        cmds[1] = pathToFile;
+        bytes memory result = vm.ffi(cmds);
+        data = abi.decode(result, (uint256[]));
     }
 
     ///@notice Run the script

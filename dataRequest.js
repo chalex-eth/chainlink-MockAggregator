@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
-import ethers from "ethers";
+import ethers, { BigNumber } from "ethers";
 import fs from "fs";
+import { toBn } from "evm-bn";
 
 const myArgs = process.argv.slice(2);
 const asset = myArgs[0];
@@ -28,7 +29,8 @@ function toFixed(x) {
 
 let prices = [];
 for (var i = 0; i < data["prices"].length; i++) {
-    prices.push(String(toFixed(data["prices"][i][1] * 10 ** 18)));
+    let p = toBn(String(toFixed(data["prices"][i][1])));
+    prices.push(p);
 }
 
 const encodedData = ethers.utils.defaultAbiCoder.encode(["uint256[]"], [prices]);
