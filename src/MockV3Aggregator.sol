@@ -23,10 +23,10 @@ contract MockV3Aggregator is DataFetcher {
     mapping(uint256 => uint256) public getTimestamp;
     mapping(uint256 => uint256) private getStartedAt;
 
-    constructor(uint8 _decimals)
+    constructor(uint8 _decimals,string memory filename)
         DataFetcher()
     {
-        loadFromFile("data.txt");
+        loadFromFile(filename);
         decimals = _decimals;
         updateAnswer();
     }

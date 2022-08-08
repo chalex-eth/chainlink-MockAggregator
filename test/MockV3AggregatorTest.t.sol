@@ -8,7 +8,7 @@ contract MockV3AggregatorTest is Test {
     MockV3Aggregator oracle;
 
     function setUp() public {
-        oracle = new MockV3Aggregator(8);
+        oracle = new MockV3Aggregator(8,"ethereum.txt");
     }
 
     function testSetUp() public {
