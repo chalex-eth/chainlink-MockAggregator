@@ -8,6 +8,7 @@ import "forge-std/Vm.sol";
 
 contract DataFetcher {
     uint256[] public data;
+    uint256[] public timestamp;
 
     Vm constant vm =
         Vm(address(bytes20(uint160(uint256(keccak256("hevm cheat code"))))));
@@ -26,6 +27,19 @@ contract DataFetcher {
         cmds[1] = pathToFile;
         bytes memory result = vm.ffi(cmds);
         data = abi.decode(result, (uint256[]));
+    }
+
+    function loadPriceAndTimestamp(string memory pricePath, string memory timestampPath) internal {
+        string[] memory cmds = new string[](2);
+        cmds[0] = "cat";
+        cmds[1] = pricePath;
+        bytes memory result = vm.ffi(cmds);
+        data = abi.decode(result, (uint256[])); 
+
+        cmds[0] = "cat";
+        cmds[1] = timestampPath;
+        result = vm.ffi(cmds);
+        timestamp = abi.decode(result, (uint256[])); 
     }
 
     ///@notice Run the script
